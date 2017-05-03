@@ -12,15 +12,15 @@ describe('adding a new list', {:type => :feature})  do
   end
 end
 
-describe('viewing all of the lists', {:type => :feature}) do
-  it 'allows a user to see all the lists that have been created' do
-    list = List.new({:name => 'Epicodus Homework', :id => nil})
-    list.save
-    visit '/'
-    click_link 'View All Lists'
-    expect(page).to have_content(list.name)
-  end
-end
+# describe('viewing all of the lists', {:type => :feature}) do
+#   it 'allows a user to see all the lists that have been created' do
+#     list = List.new({:name => 'Epicodus Homework', :id => nil})
+#     list.save
+#     visit '/'
+#     click_link 'View All Lists'
+#     expect(page).to have_content(list.name)
+#   end
+# end
 
 describe 'seeing details for a single list', {:type => :feature} do
   it 'allows a user to click a list to see the tasks and details for it' do
@@ -28,7 +28,7 @@ describe 'seeing details for a single list', {:type => :feature} do
     test_list.save
     test_task = Task.new({:description => "learn SQL", :list_id => test_list.id})
     test_task.save
-    visit '/lists'
+    visit '/'
     click_link(test_list.name)
     expect(page).to have_content(test_task.description)
   end
